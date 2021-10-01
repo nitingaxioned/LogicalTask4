@@ -107,10 +107,14 @@ li {
   Header styling starts here
 =================================*/
 
-
-
-
-
+header p{
+  color: #48d494; 
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 35px;
+  margin: 10px;
+  font-weight: bold;
+}
 
 /*=================================
   Header styling ends here
