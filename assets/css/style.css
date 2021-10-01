@@ -124,10 +124,59 @@ header p{
   main styling starts here
 =================================*/
 
+main{
+  border: 1px solid #000000;
+  padding: 15px 20px;
+  width: 70%;
+  max-width: 1350px;
+  margin: auto;
+}
 
+.form-container{
+  border: 1px solid #000000;
+  width: 100%;
+  padding: 15px 0;
+}
 
+.form-group{
+  margin: auto;
+  padding: 8px 0;
+  width: 95%;
+  max-width: 500px;
+  display: flex;
+  position: relative;
+}
 
+.form-group label:first-child{
+  display: inline-block;
+  width: 20%;
+}
 
+textarea,
+input[ type="text" ]{
+  width: 75%;
+}
+
+.error{
+  position:absolute;
+  left: 20%;
+  font-size: 12px;
+  color: #ff5555;
+  top: -6px;
+}
+
+textarea{
+  height: 20vh;
+}
+
+.form-control{
+  display: flex;
+  justify-content: center;
+}
+
+.form-control input{
+  margin: 10px;
+}
 
 
 
