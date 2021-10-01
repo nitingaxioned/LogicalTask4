@@ -126,7 +126,7 @@ header p{
 
 main{
   border: 1px solid #000000;
-  padding: 15px 20px;
+  padding: 20px;
   width: 70%;
   max-width: 1350px;
   margin: auto;
@@ -135,7 +135,11 @@ main{
 .form-container{
   border: 1px solid #000000;
   width: 100%;
+  box-sizing: border-box;
   padding: 15px 0;
+  margin: auto;
+  max-width: 700px;
+  margin-bottom: 20px;
 }
 
 .form-group{
@@ -165,20 +169,36 @@ input[ type="text" ]{
   top: -6px;
 }
 
-textarea{
-  height: 20vh;
-}
+textarea{ height: 20vh; }
+.form-control input{ margin: 10px; }
 
 .form-control{
   display: flex;
   justify-content: center;
 }
 
-.form-control input{
-  margin: 10px;
+.list{
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
 }
 
+.list-row{
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #000000;
+}
 
+.list-row li{
+  width: 20%;
+  box-sizing: border-box;
+  border-right: 0.5px solid #000000;
+  padding: 3px 0;
+  text-align: center;
+}
+
+.list-heding li{ font-weight: 600; }
 
 /*=================================
   main styling ends here
