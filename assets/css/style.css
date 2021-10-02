@@ -164,9 +164,9 @@ input[ type="text" ]{
 .error{
   position:absolute;
   left: 20%;
-  font-size: 12px;
+  font-size: 11px;
   color: #ff5555;
-  top: -6px;
+  top: -5px;
 }
 
 textarea{ height: 20vh; }
@@ -198,7 +198,15 @@ textarea{ height: 20vh; }
   text-align: center;
 }
 
+a{
+  color: #000000;
+  font-size: 14px;
+}
+
 .list-heding li{ font-weight: 600; }
+
+textarea,
+input:focus{ outline: none; }
 
 /*=================================
   main styling ends here

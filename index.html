@@ -30,7 +30,7 @@
     <!--main section start-->
     <main>
       <div class="form-container">
-        <form>
+        <form id="form-body">
           <div class="form-group">
             <label>First Name:</label>
             <span class="error" id="fname-error"></span>
@@ -47,12 +47,12 @@
             <input type="radio" name="gender" id="gen-m" value="Male">
             <label for="gen-m">Male</label>
             <input type="radio" name="gender" id="gen-f" value="Female">
-            <label for="gen-m">Female</label>
+            <label for="gen-f">Female</label>
           </div>
           <div class="form-group">
             <label>Address: </label>
             <span class="error" id="add-error"></span>
-            <textarea placeholder="" id="address"></textarea>
+            <textarea id="address"></textarea>
           </div>
           <div class="form-group">
             <label></label>
@@ -62,7 +62,7 @@
           </div>
           <div class="form-control">
             <input type="button" value="Submit" onclick="validate()">
-            <input type="reset" value="Cancel" onclick="clear()">
+            <input type="reset" value="Cancel" onclick="reclear()">
           </div>
         </form>
       </div>
