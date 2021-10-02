@@ -6,10 +6,12 @@ const gen = [document.getElementById("gen-m"), document.getElementById("gen-f")]
 const address = document.getElementById("address");
 const condition = document.getElementById("condition");
 const listhtml = document.getElementById("list-id");
+const btns = document.getElementById("control-id");
+let btnstxt = btns.innerHTML;
 let listtxt = listhtml.innerHTML;
 let datalist = [];
 
-function validate(){
+function validate(index){
     let flag=0;
     reclear();
     if(fname.value==""){
@@ -34,31 +36,31 @@ function validate(){
     }
     console.log(flag);
     if(flag==0)
-        adddata();
+        index == undefined ? adddata() : adddata(index);
 }
 
-function adddata(){
+function adddata(index){
     let temparray =[];
     temparray.push(fname.value);
     temparray.push(lname.value)
     temparray.push([gen[0].checked, gen[1].checked]);
     temparray.push(address.value);
-    datalist.push(temparray);
+    index == undefined ? datalist.push(temparray) : datalist[index]=temparray;
     document.getElementById("form-body").reset();
     display();
 }
 
-function reclear(){
+function reclear(index){
     document.getElementById("fname-error").innerHTML = "";
     document.getElementById("lname-error").innerHTML = "";
     document.getElementById("gen-error").innerHTML = "";
     document.getElementById("add-error").innerHTML = "";
     document.getElementById("cond-error").innerHTML = "";
+    if( index != undefined ){btns.innerHTML = btnstxt;}
 }
 
 function display(){
     let displaytxt = listtxt;
-    console.log(datalist);
     datalist.forEach( (val, i) => {
         console.log(val[2][0]);
         console.log(val[2][1]);
@@ -90,6 +92,10 @@ function editdata(index){
     gen[1].checked = datalist[index][2][1];
     address.value = datalist[index][3];
     condition.checked = true;
+
+    btns.innerHTML=`
+        <input type="button" value="Submit" onclick="validate(${index})">
+        <input type="reset" value="Cancel" onclick="reclear(${index})">`;
 }
 
 
