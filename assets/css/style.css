@@ -107,10 +107,14 @@ li {
   Header styling starts here
 =================================*/
 
-
-
-
-
+header p{
+  color: #48d494; 
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 35px;
+  margin: 10px;
+  font-weight: bold;
+}
 
 /*=================================
   Header styling ends here
@@ -120,12 +124,89 @@ li {
   main styling starts here
 =================================*/
 
+main{
+  border: 1px solid #000000;
+  padding: 20px;
+  width: 70%;
+  max-width: 1350px;
+  margin: auto;
+}
 
+.form-container{
+  border: 1px solid #000000;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px 0;
+  margin: auto;
+  max-width: 700px;
+  margin-bottom: 20px;
+}
 
+.form-group{
+  margin: auto;
+  padding: 8px 0;
+  width: 95%;
+  max-width: 500px;
+  display: flex;
+  position: relative;
+}
 
+.form-group label:first-child{
+  display: inline-block;
+  width: 20%;
+}
 
+textarea,
+input[ type="text" ]{
+  width: 75%;
+}
 
+.error{
+  position:absolute;
+  left: 20%;
+  font-size: 11px;
+  color: #ff5555;
+  top: -5px;
+}
 
+textarea{ height: 20vh; }
+.form-control input{ margin: 10px; }
+
+.form-control{
+  display: flex;
+  justify-content: center;
+}
+
+.list{
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+}
+
+.list-row{
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid #000000;
+}
+
+.list-row li{
+  width: 20%;
+  box-sizing: border-box;
+  border-right: 0.5px solid #000000;
+  padding: 3px 0;
+  text-align: center;
+}
+
+a{
+  color: #000000;
+  font-size: 14px;
+}
+
+.list-heding li{ font-weight: 600; }
+
+textarea,
+input:focus{ outline: none; }
 
 /*=================================
   main styling ends here
@@ -136,7 +217,14 @@ li {
 =================================*/ 
 
 
-
+footer{
+  text-align: center;
+  color: aliceblue;
+  background:#484848;
+  padding: 5px;
+  font-size: 10px;
+  margin-top: 40px;
+}
 
 
 
@@ -146,9 +234,9 @@ li {
 =================================*/ 
 
 /*media query starts*/
-/*media query for 995px starts here*/
-@media only screen and (max-width: 995px) {
+/*media query for 768px starts here*/
+@media only screen and (max-width: 768px) {
 
-
+main{width: 95%;}
 
 }  

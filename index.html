@@ -4,7 +4,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Client</title>
+  <title>Logical Task 4</title>
   <!-- View-port Basics: http://mzl.la/VYREaP -->
   <!-- This meta tag is used for mobile device to display the page without any zooming,
        so how much the device is able to fit on the screen is what's shown initially. 
@@ -24,18 +24,66 @@
   <div class="container">
     <!--header section start-->
     <header>
-      
+      <p>Task 4</p>
     </header>
     <!--header section start-->
     <!--main section start-->
     <main>
-
+      <div class="form-container">
+        <form id="form-body">
+          <div class="form-group">
+            <label>First Name:</label>
+            <span class="error" id="fname-error"></span>
+            <input type="text" id="fname">
+          </div>
+          <div class="form-group">
+            <label>Last Name:</label>
+            <span class="error" id="lname-error"></span>
+            <input type="text" id="lname">
+          </div>
+          <div class="form-group">
+            <label>Gender:</label>
+            <span class="error" id="gen-error"></span>
+            <input type="radio" name="gender" id="gen-m" value="Male">
+            <label for="gen-m">Male</label>
+            <input type="radio" name="gender" id="gen-f" value="Female">
+            <label for="gen-f">Female</label>
+          </div>
+          <div class="form-group">
+            <label>Address: </label>
+            <span class="error" id="add-error"></span>
+            <textarea id="address"></textarea>
+          </div>
+          <div class="form-group">
+            <label></label>
+            <span class="error" id="cond-error"></span>
+            <input type="checkbox" id="condition">
+            <a href="#FIXME" title="Terms and Conditions">Terms and Conditions</a>
+          </div>
+          <div class="form-control" id="control-id">
+            <input type="button" value="Submit" onclick="validate()">
+            <input type="reset" value="Cancel" onclick="reclear()">
+          </div>
+        </form>
+      </div>
+      <ul class="list" id="list-id">
+        <li class="list-heding">
+          <ul class="list-row">
+            <li>Name</li>
+            <li>Last Name</li>
+            <li>Gender</li>
+            <li>Address</li>
+            <li>Edit</li>
+            <li>Delete</li>
+          </ul>
+        </li>
+      </ul>
     </main>
     <!--main section end-->
 
     <!--footer section start-->
     <footer>      
-
+      <p>Crated By NDG</p>
     </footer>
     <!--footer section end-->
 
