@@ -1,5 +1,3 @@
-
-
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
 const gen = [document.getElementById("gen-m"), document.getElementById("gen-f")];
@@ -48,6 +46,7 @@ function adddata(index){
     index == undefined ? datalist.push(temparray) : datalist[index]=temparray;
     document.getElementById("form-body").reset();
     display();
+    alert("Your Data saved Sucsessfully..."+"Thank You!!!");
 }
 
 function reclear(index){
@@ -83,6 +82,7 @@ function display(){
 function dltdata(index){
     datalist.splice(index, 1);
     display();
+    alert("Your Data Deleted Sucsessfully...");
 }
 
 function editdata(index){
