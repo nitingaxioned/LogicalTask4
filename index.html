@@ -29,25 +29,26 @@
     <!--header section start-->
     <!--main section start-->
     <main>
+      <span class="pop-msg">&nbsp;</span>
       <div class="form-container">
-        <form id="form-body">
+        <form id="form-body" name="form">
           <div class="form-group">
             <label>First Name:</label>
+            <input type="text" id="fname"> 
             <span class="error" id="fname-error"></span>
-            <input type="text" id="fname">
           </div>
           <div class="form-group">
             <label>Last Name:</label>
-            <span class="error" id="lname-error"></span>
             <input type="text" id="lname">
+            <span class="error" id="lname-error"></span>
           </div>
           <div class="form-group">
             <label>Gender:</label>
+            <input type="radio" name="gender" id="gen-male" value="Male">
+            <label for="gen-male">Male</label>
+            <input type="radio" name="gender" id="gen-female" value="Female">
+            <label for="gen-female">Female</label>
             <span class="error" id="gen-error"></span>
-            <input type="radio" name="gender" id="gen-m" value="Male">
-            <label for="gen-m">Male</label>
-            <input type="radio" name="gender" id="gen-f" value="Female">
-            <label for="gen-f">Female</label>
           </div>
           <div class="form-group">
             <label>Address: </label>
@@ -61,8 +62,8 @@
             <a href="#FIXME" title="Terms and Conditions">Terms and Conditions</a>
           </div>
           <div class="form-control" id="control-id">
-            <input type="button" value="Submit" onclick="validate()">
-            <input type="reset" value="Cancel" onclick="reclear()">
+            <input type="button" value="Submit" id="sub-btn">
+            <input type="reset" value="Cancel" id="can-btn">
           </div>
         </form>
       </div>

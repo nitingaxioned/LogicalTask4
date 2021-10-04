@@ -132,6 +132,14 @@ main{
   margin: auto;
 }
 
+.pop-msg{
+  display: block;
+  text-align: center;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: #484848;
+}
+
 .form-container{
   border: 1px solid #000000;
   width: 100%;
@@ -169,7 +177,7 @@ input[ type="text" ]{
   top: -5px;
 }
 
-textarea{ height: 20vh; }
+textarea{ min-height: 150px; }
 .form-control input{ margin: 10px; }
 
 .form-control{
