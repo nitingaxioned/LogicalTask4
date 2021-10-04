@@ -177,7 +177,7 @@ input[ type="text" ]{
   top: -5px;
 }
 
-textarea{ height: 20vh; }
+textarea{ min-height: 150px; }
 .form-control input{ margin: 10px; }
 
 .form-control{

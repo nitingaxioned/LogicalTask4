@@ -1,13 +1,26 @@
+const formselect = document.getElementById("form-body");
+const popmsg = document.querySelector(".pop-msg");
+const subbtn = document.getElementById("sub-btn");
+const canbtn = document.getElementById("can-btn");
 const fname = document.getElementById("fname");
 const lname = document.getElementById("lname");
-const gen = [document.getElementById("gen-m"), document.getElementById("gen-f")];
+const gen = [document.getElementById("gen-male"), document.getElementById("gen-female")];
 const address = document.getElementById("address");
 const condition = document.getElementById("condition");
+const errorSpan = document.querySelectorAll(".error");
 const listhtml = document.getElementById("list-id");
-const btns = document.getElementById("control-id");
-let btnstxt = btns.innerHTML;
 let listtxt = listhtml.innerHTML;
 let datalist = [];
+subbtn.setAttribute("onclick","validate()");
+canbtn.setAttribute("onclick","reclear()");
+function dataObj(firstname, lastname, genderArray, add){
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.genderArray = genderArray;
+    this.add = add;
+}
+
+
 
 function validate(index){
     let flag=0;
@@ -38,64 +51,62 @@ function validate(index){
 }
 
 function adddata(index){
-    let temparray =[];
-    temparray.push(fname.value);
-    temparray.push(lname.value)
-    temparray.push([gen[0].checked, gen[1].checked]);
-    temparray.push(address.value);
-    index == undefined ? datalist.push(temparray) : datalist[index]=temparray;
-    document.getElementById("form-body").reset();
+    let temobj = new dataObj(fname.value, lname.value, [gen[0].checked, gen[1].checked], address.value);
+    index == undefined ? datalist.push(temobj) : datalist.splice(index, 1, temobj);
+    formselect.reset();
     display();
-    alert("Your Data saved Sucsessfully..."+"Thank You!!!");
+    popmsg.innerHTML="Your Data saved Sucsessfully... Thank You!!!";
+    setTimeout(function(){ popmsg.innerHTML="&nbsp;"; }, 3000);
 }
 
 function reclear(index){
-    document.getElementById("fname-error").innerHTML = "";
-    document.getElementById("lname-error").innerHTML = "";
-    document.getElementById("gen-error").innerHTML = "";
-    document.getElementById("add-error").innerHTML = "";
-    document.getElementById("cond-error").innerHTML = "";
-    if( index != undefined ){btns.innerHTML = btnstxt;}
+    for(let val of errorSpan)
+        val.innerHTML = "";
+    if( index != undefined ){
+        subbtn.setAttribute("onclick","validate()");
+        canbtn.setAttribute("onclick","reclear()");
+    }
 }
 
 function display(){
     let displaytxt = listtxt;
-    datalist.forEach( (val, i) => {
-        console.log(val[2][0]);
-        console.log(val[2][1]);
-        let gender = val[2][0] ? "Male" : "Female"; 
+    datalist.forEach( function(val, i){
+        let gender = val.genderArray[0] ? "Male" : "Female"; 
         displaytxt +=`
         <li>
           <ul class="list-row">
-            <li>${val[0]}</li>
-            <li>${val[1]}</li>
+            <li>${val.firstname}</li>
+            <li>${val.lastname}</li>
             <li>${gender}</li>
-            <li>${val[3]}</li>
+            <li>${val.add}</li>
             <li><input type="button" value="Edit" onclick="editdata(${i})"></li>
             <li><input type="button" value="Delete" onclick="dltdata(${i})"></li>
           </ul>
         </li>`;
     });
     listhtml.innerHTML = displaytxt;
+    subbtn.setAttribute("onclick","validate()");
 }
 
 function dltdata(index){
-    datalist.splice(index, 1);
-    display();
-    alert("Your Data Deleted Sucsessfully...");
+    if(confirm("Are you sure wnna delete this?")){
+        datalist.splice(index, 1);
+        display();
+        popmsg.innerHTML="Your Data Deleted Sucsessfully...";
+        setTimeout(function(){ popmsg.innerHTML="&nbsp;"; }, 3000);
+    }
 }
 
 function editdata(index){
-    fname.value = datalist[index][0];
-    lname.value = datalist[index][1];
-    gen[0].checked = datalist[index][2][0];
-    gen[1].checked = datalist[index][2][1];
-    address.value = datalist[index][3];
+    let tempObj = datalist[index];
+    fname.value = tempObj.firstname;
+    lname.value = tempObj.lastname;
+    gen[0].checked = tempObj.genderArray[0];
+    gen[1].checked = tempObj.genderArray[1];
+    address.value = tempObj.add;
     condition.checked = true;
-
-    btns.innerHTML=`
-        <input type="button" value="Submit" onclick="validate(${index})">
-        <input type="reset" value="Cancel" onclick="reclear(${index})">`;
+    subbtn.setAttribute("onclick","validate("+index+")");
+    canbtn.setAttribute("onclick","reclear("+index+")");
 }
 
 
