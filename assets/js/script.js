@@ -45,7 +45,6 @@ function validate(index){
         flag++;
         document.getElementById("cond-error").innerHTML = "do agree for terms and conditions";
     }
-    console.log(flag);
     if(flag==0)
         index == undefined ? adddata() : adddata(index);
 }
@@ -71,21 +70,20 @@ function reclear(index){
 function display(){
     let displaytxt = listtxt;
     datalist.forEach( function(val, i){
-        let gender = val.genderArray[0] ? "Male" : "Female"; 
-        displaytxt +=`
-        <li>
-          <ul class="list-row">
-            <li>${val.firstname}</li>
-            <li>${val.lastname}</li>
-            <li>${gender}</li>
-            <li>${val.add}</li>
-            <li><input type="button" value="Edit" onclick="editdata(${i})"></li>
-            <li><input type="button" value="Delete" onclick="dltdata(${i})"></li>
-          </ul>
-        </li>`;
-    });
-    listhtml.innerHTML = displaytxt;
+        let gender = val.genderArray[0] ? "Male" : "Female";
+        let tmpstr1 = listtxt.replace( /list-heding/ ,"list-data");
+        let tmpstr2 = tmpstr1.replace( /Name/ ,val.firstname);
+        tmpstr1 = tmpstr2.replace( /Last Name/ ,val.lastname);
+        tmpstr2 = tmpstr1.replace( /Gender/ ,gender);
+        tmpstr1 = tmpstr2.replace( /Address/ ,val.add);
+        tmpstr2 = tmpstr1.replace( /Edit/ ,'<input type="button" value="Edit" id="edit'+i+'">');
+        tmpstr1 = tmpstr2.replace( /Delete/ ,'<input type="button" value="Delete" id="delt'+i+'">');
+        displaytxt += tmpstr1;});
     subbtn.setAttribute("onclick","validate()");
+    listhtml.innerHTML = displaytxt;
+    datalist.forEach( function(val, i){
+        document.getElementById("edit"+i).setAttribute("onclick","editdata("+i+")");
+        document.getElementById("delt"+i).setAttribute("onclick","dltdata("+i+")");});
 }
 
 function dltdata(index){
