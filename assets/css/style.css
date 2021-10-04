@@ -132,6 +132,14 @@ main{
   margin: auto;
 }
 
+.pop-msg{
+  display: block;
+  text-align: center;
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: #484848;
+}
+
 .form-container{
   border: 1px solid #000000;
   width: 100%;
