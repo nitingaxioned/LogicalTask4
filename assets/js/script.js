@@ -14,11 +14,11 @@ function validate(index){
     reclear();
     if(fname.value==""){
         flag++;
-        document.getElementById("fname-error").innerHTML = "first name is requred...";
+        document.getElementById("fname-error").innerHTML = "first name is required...";
     }
     if(lname.value==""){
         flag++;
-        document.getElementById("lname-error").innerHTML = "last name is requred...";
+        document.getElementById("lname-error").innerHTML = "last name is required...";
     }
     if(!(gen[0].checked||gen[1].checked)){
         flag++;
